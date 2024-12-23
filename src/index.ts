@@ -1,10 +1,9 @@
 import express, { Request, Response } from "express";
 import * as dotenv from "dotenv";
+
 dotenv.config();
 
 const app = express();
-const port = 3000;
-
 app.use(express.json());
 
 app.post("/", async (req: Request, res: Response) => {
@@ -34,6 +33,5 @@ app.post("/", async (req: Request, res: Response) => {
   res.send(body);
 });
 
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
-});
+// Exporta o handler para a Vercel
+export default app;
